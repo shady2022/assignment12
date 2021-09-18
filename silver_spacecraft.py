@@ -60,25 +60,25 @@ class Game(arcade.Window):
         self.h = 600
         super().__init__(self.w, self.h, 'silver spacecraft')
         arcade.set_background_color('Bckgroundimage.jpg')
-        #self.background_image = arcade.load_texture('Lighthouse.png')
+        self.background_image = arcade.load_texture('Lighthouse.png')
         
         self.me = SpaceCraft(self.w, self.h)
         self.enemy_list = arcade.SpriteList()
         self.next_enemy_time = random.randint(0, 5)
         self.game_start_time = time.time()
         self.start_time = time.time()
-        #self.life_image = arcade.load_texture('Bckgroundimage.jpg')
+        self.life_image = arcade.load_texture('Bckgroundimage.jpg')
         
         
     def on_draw(self):
-            #arcade.start_render()
+            arcade.start_render()
             if self.me.life <= 0:
                 arcade.set_background_color(arcade.color.BLACK)
                 arcade.draw_text('GAME OVER', 150, self.h//2, arcade.color.GREEN, 60)
 
             else:
-                pass
-                #arcade.draw_lrwh_rectangle_textured(0, 0, 600, 476, self.background_image)
+                
+                arcade.draw_lrwh_rectangle_textured(0, 0, 600, 476, self.background_image)
                 
             self.me.draw()
             
@@ -89,10 +89,10 @@ class Game(arcade.Window):
                 self.enemy_list[i].draw()
                 
             for life in range(self.me.life):
-                   # life_image = arcade.load_texture('heart.png')
-                   # arcade.draw_lrwh_rectangle_textured(5 + life * 21, 10 , 20, 20 , life_image)
+                   life_image = arcade.load_texture('heart.png')
+                   arcade.draw_lrwh_rectangle_textured(5 + life * 21, 10 , 20, 20 , life_image)
             
-            #arcade.draw_text(f'score: {self.me.score}', 680, 20, arcade.color.PINK, 20)    
+            arcade.draw_text(f'score: {self.me.score}', 680, 20, arcade.color.PINK, 20)    
         
     
         
@@ -103,6 +103,7 @@ class Game(arcade.Window):
         if (self.end_time - self.start_time) > enemy_time:
                 self.enemy_list.append(Enemy(self.w, self.h))
                 self.start_time = time.time()
+                
 
         
         #for i in range(len(self.me.bullet_list)):
@@ -173,6 +174,4 @@ if __name__ == "__main__":
     main()        
         
 game = Game()
-arcade.run()
-        
-    
+arcade.run() 
