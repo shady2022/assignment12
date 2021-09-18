@@ -60,7 +60,7 @@ class Game(arcade.Window):
         self.w = 600
         self.h = 600
         super().__init__(self.w, self.h, 'silver spacecraft')
-        self.background_image = arcade.load_texture('Lighthouse.png')
+        self.background_image = arcade.load_texture('c:/python_programming/spacecraft/Lighthouse.png')
         
         self.me = SpaceCraft(self.w, self.h)
         self.enemy_list = arcade.SpriteList()
@@ -131,10 +131,10 @@ class Game(arcade.Window):
                
                    
         for Bullet in range(len(self.me.bullet_list)): 
-             for Enemy in range(len(self.enemy_list)):          
-                if Bullet.center_x == Enemy.center_x:
+             for enemy in range(len(self.enemy_list)):          
+                if Bullet.center_x == enemy.center_x:
                   self.enemy_list.remove(enemy)
-                elif Bullet.center_y == Enemy.center_y:
+                elif Bullet.center_y == enemy.center_y:
                   self.enemy_list.remove()
                   self.me.score += 1
                   
@@ -164,14 +164,7 @@ class Game(arcade.Window):
         self.me.change_angle = 0 
         
                       
-                
-def main():
-    window = Game()
-    window.center_window()
-    arcade.run()
-    
-if __name__ == "__main__":
-    main()        
+                  
         
 game = Game()
 arcade.run() 
