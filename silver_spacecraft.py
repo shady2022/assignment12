@@ -44,12 +44,13 @@ class Bullet(arcade.Sprite):
         
 class Enemy(arcade.Sprite):
     def __init__(self, w, h, s=3):
-        super().__init__('tasweiro bezar') 
+        super().__init__(':resources:images/space_shooter/playerShip2_orange.png') 
         self.speed = s
         self.center_x = random.randint(0, w)
         self.center_y = h
         self.width = 80
         self.height = 80
+        self.angle = 180
         
     def move(self):
         self.center_y -= self.speed       
@@ -59,7 +60,6 @@ class Game(arcade.Window):
         self.w = 600
         self.h = 600
         super().__init__(self.w, self.h, 'silver spacecraft')
-        arcade.set_background_color('Bckgroundimage.jpg')
         self.background_image = arcade.load_texture('Lighthouse.png')
         
         self.me = SpaceCraft(self.w, self.h)
@@ -67,7 +67,7 @@ class Game(arcade.Window):
         self.next_enemy_time = random.randint(0, 5)
         self.game_start_time = time.time()
         self.start_time = time.time()
-        self.life_image = arcade.load_texture('Bckgroundimage.jpg')
+        self.life_image = arcade.load_texture(':resources:images/items/star.png')
         
         
     def on_draw(self):
@@ -89,7 +89,7 @@ class Game(arcade.Window):
                 self.enemy_list[i].draw()
                 
             for life in range(self.me.life):
-                   life_image = arcade.load_texture('heart.png')
+                   life_image = arcade.load_texture(':resources:images/items/star.png')
                    arcade.draw_lrwh_rectangle_textured(5 + life * 21, 10 , 20, 20 , life_image)
             
             arcade.draw_text(f'score: {self.me.score}', 680, 20, arcade.color.PINK, 20)    
