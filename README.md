@@ -26,4 +26,6 @@
 :basecamp:سرعت دشمن به مرور اندک اندک افزایش پیدا کن
   
 </div>
-![Untitled7](https://user-images.githubusercontent.com/88148144/133891247-a793faf0-230f-4896-aad3-4598229092bc.png)
+
+![image](https://user-images.githubusercontent.com/88148144/133891397-c149de91-0990-45e6-b480-6d397482fb9a.png)
+
